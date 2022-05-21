@@ -1,17 +1,12 @@
 <?php
 
-include_once __DIR__.'/../timeExecution.php';
+include_once __DIR__ . '/../timeExecution.php';
 $timeStart = timeExecution::start();
 
-/**
- * Get csv data
- *
- * @return array
- */
-function getRows()
+function getCsvRows()
 {
     $data = [];
-    $handle = fopen(__DIR__."/Fielding500000.csv", "r");
+    $handle = fopen(__DIR__ . "/Fielding500000.csv", "r");
     while (!feof($handle)) {
         $row = fgetcsv($handle, 4096);
         $data[] = $row;
@@ -22,7 +17,7 @@ function getRows()
 }
 
 // Get rows and do something with $data rows
-$data = getRows();
+$data = getCsvRows();
 $row = 0;
 foreach ($data as $item) {
     // Apply a filter or seek something
