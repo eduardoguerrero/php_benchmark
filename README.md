@@ -21,22 +21,22 @@ Then you can enter the php container
 ```
 # 2. Run examples
 
-### Get Fatal error: Allowed memory size of
+### Example with array and get Fatal error: Allowed memory size of
 
 ```bash
 ❯ docker exec -it php_benchmark_php php -d memory_limit=500M /home/wwwroot/php_benchmark/readCsv/example1.php
 ```
 
-### Run example with generator + yield
+### Example with generator + yield
 
 ```bash
 ❯ docker exec -it php_benchmark_php php /home/wwwroot/php_benchmark/readCsv/example2.php
 ```
 
-|        | Array | Generator |
-|--------|-------|-----------|
-| Time   |  +/- 2:90 sec     | 942MB     |
-| Memory | +/- 4:40 sec      | 0.42MB    |
+|        | Array        | Generator |
+|--------|--------------|-----------|
+| Time   | +/- 3:50 sec | 940 MB    |
+| Memory | +/- 5:30 sec | 0.41 MB   |
 
 
 Reference:
