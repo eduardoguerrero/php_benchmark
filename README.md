@@ -92,6 +92,9 @@ References:
 | Object | +/- 0.40 sec | 50MB   |
 
 
+References:
+- https://stackoverflow.com/questions/2193049/php-objects-vs-arrays-performance-comparison-while-iterating
+
 Feel free to fork it or do whatever you want with it.
 
 License: https://creativecommons.org/licenses/by/3.0/
