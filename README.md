@@ -1,6 +1,6 @@
 # 1. Start the container
 
-You can start the container by typing following into your local shell
+You can start the container by typing following into your local shell (in those examples has been used PHP 8.0.2 and results may vary in other PHP versions.)
 
 ```bash
 ❯ cd /path/your/project/php_benchmark/docker 
@@ -24,9 +24,9 @@ Then you can enter the php container
 
 ---
 
-## Read csv: Generator vs Array
+# Generator vs Array
 
-### Example with array and get Fatal error: Allowed memory size of
+### Example with Array
 
 ```bash
 ❯ docker exec -it php_benchmark_php php -d memory_limit=1024M /home/wwwroot/php_benchmark/readCsv/example1.php 
@@ -51,7 +51,7 @@ References:
 
 ---
 
-## SplFixedArray vs Array
+# SplFixedArray vs Array
 
 ### Example with array
 
@@ -78,7 +78,7 @@ References:
 
 ---
 
-## Object vs Array
+# Object vs Array
 
 ### Example with object
 
@@ -96,3 +96,8 @@ References:
 |--------|--------------|-------|
 | Array  | +/- 0.85 sec | 475MB |
 | Object | +/- 0.70 sec | 215MB |
+
+
+Feel free to fork it or do whatever you want with it.
+
+License: https://creativecommons.org/licenses/by/3.0/
