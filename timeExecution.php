@@ -7,10 +7,10 @@ class timeExecution
      */
     public static function start()
     {
-        echo str_repeat("=", 100) . PHP_EOL;
+        self::printColor(str_repeat("=", 100) . PHP_EOL);
         $timeStart = microtime(true);
-        echo "\033[01;31m[ START ] Memory: " . memory_get_peak_usage(true) . " (" . ((memory_get_peak_usage(true) / 1024) / 1024) . " MB \033[0m)" . PHP_EOL;
-        echo str_repeat("=", 100) . PHP_EOL;
+        self::printColor("Memory: " . memory_get_peak_usage(true) . " (" . ((memory_get_peak_usage(true) / 1024) / 1024) . " MB)" . PHP_EOL);
+        self::printColor(str_repeat("=", 100) . PHP_EOL);
 
         return $timeStart;
     }
@@ -23,11 +23,36 @@ class timeExecution
     {
         $timeEnd = microtime(true);
         $executionTime = ($timeEnd - $timeStart);
-        echo "\033[01;31m[ FINISH ] Memory: " . memory_get_peak_usage(true) . " (" . ((memory_get_peak_usage(true) / 1024) / 1024) . " MB)\033[0m)" . PHP_EOL;
-        echo str_repeat("=", 100) . PHP_EOL;
-        echo "\033[01;31m Total Execution Time: " . $executionTime . " \033[0m)" . PHP_EOL;
-        echo str_repeat("=", 100) . PHP_EOL;
+        self::printColor("Memory: " . memory_get_peak_usage(true) . " (" . ((memory_get_peak_usage(true) / 1024) / 1024) . " MB)" . PHP_EOL);
+        self::printColor(str_repeat("=", 100) . PHP_EOL);
+        self::printColor("Total Execution Time: " . $executionTime . PHP_EOL, 'info');
+        self::printColor(str_repeat("=", 100) . PHP_EOL);
 
         return $executionTime;
+    }
+
+    /**
+     * @param $str
+     * @param $type
+     * @return void
+     */
+    public static function printColor($str, $type = 'success')
+    {
+        switch ($type) {
+            case 'error':
+                echo "\033[31m$str \033[0m\n";
+                break;
+            case 'success':
+                echo "\033[32m$str \033[0m\n";
+                break;
+            case 'warning':
+                echo "\033[33m$str \033[0m\n";
+                break;
+            case 'info':
+                echo "\033[36m$str \033[0m\n";
+                break;
+            default:
+                break;
+        }
     }
 }

@@ -26,5 +26,5 @@ foreach ($data as $item) {
     }
     $row++;
 }
-echo 'Total rows: ' . count($data) . PHP_EOL;
+//echo 'Total rows: ' . count($data) . PHP_EOL;
 timeExecution::end($timeStart);

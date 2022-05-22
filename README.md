@@ -38,8 +38,8 @@ Then you can enter the php container or execute the examples using `docker exec 
 
 |        | Time         | Memory |
 |--------|--------------|--------|
-| Array  | +/- 3.77 sec | 945MB  |
-| Generator | +/- 5.77 sec | 0.41MB |
+| Array  | +/- 3.50 sec | 950MB  |
+| Generator | +/- 5.30 sec | 2MB    |
 
 
 References:
