@@ -26,22 +26,23 @@ Then you can enter the php container
 
 ## Read csv: Generator vs Array
 
-### - Example with array and get Fatal error: Allowed memory size of
+### Example with array and get Fatal error: Allowed memory size of
 
 ```bash
-❯ docker exec -it php_benchmark_php php -d memory_limit=500M /home/wwwroot/php_benchmark/readCsv/example1.php
+❯ docker exec -it php_benchmark_php php -d memory_limit=1024M /home/wwwroot/php_benchmark/readCsv/example1.php 
 ```
 
-### - Example with generator + yield
+### Example with generator + yield
 
 ```bash
-❯ docker exec -it php_benchmark_php php /home/wwwroot/php_benchmark/readCsv/example2.php
+❯ docker exec -it php_benchmark_php php -d memory_limit=2M /home/wwwroot/php_benchmark/readCsv/example2.php 
 ```
 
-|        | Array        | Generator |
-|--------|--------------|-----------|
-| Time   | +/- 3:50 sec | 940 MB    |
-| Memory | +/- 5:30 sec | 0.41 MB   |
+|        | Time         | Memory |
+|--------|--------------|--------|
+| Array  | +/- 3.77 sec | 945MB  |
+| Generator | +/- 5.77 sec | 0.41MB |
+
 
 References:
 
@@ -52,23 +53,22 @@ References:
 
 ## SplFixedArray vs Array
 
-### - Example with array
+### Example with array
 
 ```bash
 ❯ docker exec -it php_benchmark_php php /home/wwwroot/php_benchmark/splFixedArray/example1.php
 ```
 
-### - Example with SplFixedArray
+### Example with SplFixedArray
 
 ```bash
 ❯ docker exec -it php_benchmark_php php /home/wwwroot/php_benchmark/splFixedArray/example2.php
 ```
 
-
-|        | Array            | SplFixedArray |
-|--------|------------------|---------------|
-| Time   | +/-  0.02664 sec | 40 MB         |
-| Memory | +/-  0.02810 sec | 37 MB         |
+|        | Time          | Memory |
+|--------|---------------|-------|
+| Array  | +/- 0.036 sec | 40MB  |
+| SplFixedArray | +/- 0.032 sec | 37MB  |
 
 
 References:
@@ -77,3 +77,22 @@ References:
 - https://stackoverflow.com/questions/11827668/does-really-splfixedarray-perform-better-than-arrays
 
 ---
+
+## Object vs Array
+
+### Example with object
+
+```bash
+❯ docker exec -it php_benchmark_php php -d memory_limit=300M /home/wwwroot/php_benchmark/object/example1.php 
+```
+
+### Example with array
+
+```bash
+❯  docker exec -it php_benchmark_php php -d memory_limit=500M /home/wwwroot/php_benchmark/object/example2.php 
+```
+
+|        | Time         | Memory |
+|--------|--------------|-------|
+| Array  | +/- 0.85 sec | 475MB |
+| Object | +/- 0.70 sec | 215MB |

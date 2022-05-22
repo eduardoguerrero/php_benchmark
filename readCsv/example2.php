@@ -27,5 +27,4 @@ foreach (getCsvRows() as $item) {
     $row++;
 }
 echo 'Total rows: ' . iterator_count(getCsvRows()) . PHP_EOL;
-
 timeExecution::end($timeStart);
