@@ -1,6 +1,6 @@
 # 1. Start the container
 
-You can start the container by typing following into your local shell (in those examples has been used PHP 8.0.2 and results may vary in other PHP versions.)
+You can start the container by typing following into your local shell (In those examples has been used `PHP 8.0.2` and results may vary in other PHP versions.)
 
 ```bash
 ❯ cd /path/your/project/php_benchmark/docker 
@@ -14,7 +14,7 @@ CONTAINER ID   IMAGE        COMMAND                  CREATED         STATUS     
 1ec2b9674984   docker_php   "docker-php-entrypoi…"   6 minutes ago   Up 6 minutes   9000/tcp   php_benchmark_php
 ```
 
-Then you can enter the php container
+Then you can enter the php container or execute the examples using `docker exec -it`.
 
 ```bash
 ❯ docker exec -it -u dev php_benchmark_php bash
@@ -22,9 +22,7 @@ Then you can enter the php container
 
 # 2. Run examples
 
----
-
-# Generator vs Array
+## Generator vs Array
 
 ### Example with Array
 
@@ -49,9 +47,7 @@ References:
 - https://www.php.net/manual/es/class.generator.php
 - https://www.php.net/manual/es/language.generators.overview.php
 
----
-
-# SplFixedArray vs Array
+## SplFixedArray vs Array
 
 ### Example with array
 
@@ -65,10 +61,10 @@ References:
 ❯ docker exec -it php_benchmark_php php /home/wwwroot/php_benchmark/splFixedArray/example2.php
 ```
 
-|        | Time          | Memory |
-|--------|---------------|-------|
-| Array  | +/- 0.036 sec | 40MB  |
-| SplFixedArray | +/- 0.032 sec | 37MB  |
+|        | Time     | Memory |
+|--------|----------|--------|
+| Array  | +/- 0.053 sec | 42MB   |
+| SplFixedArray | +/- 0.048 sec | 40MB   |
 
 
 References:
@@ -76,14 +72,12 @@ References:
 - https://www.php.net/manual/es/class.splfixedarray.php
 - https://stackoverflow.com/questions/11827668/does-really-splfixedarray-perform-better-than-arrays
 
----
-
-# Object vs Array
+## Object vs Array
 
 ### Example with object
 
 ```bash
-❯ docker exec -it php_benchmark_php php -d memory_limit=300M /home/wwwroot/php_benchmark/object/example1.php 
+❯ docker exec -it php_benchmark_php php -d memory_limit=60M /home/wwwroot/php_benchmark/object/example1.php 
 ```
 
 ### Example with array
@@ -93,9 +87,9 @@ References:
 ```
 
 |        | Time         | Memory |
-|--------|--------------|-------|
-| Array  | +/- 0.85 sec | 475MB |
-| Object | +/- 0.70 sec | 215MB |
+|--------|--------------|--------|
+| Array  | +/- 0.50 sec | 470MB  |
+| Object | +/- 0.40 sec | 50MB   |
 
 
 Feel free to fork it or do whatever you want with it.

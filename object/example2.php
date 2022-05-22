@@ -17,10 +17,10 @@ function getUser()
 
     return $users;
 }
-// To do something with $users variable
 $users = getUser();
+// To do something with $users variable
 foreach ($users as $user) {
-    if (1000000 === $user['age']) {
+    if (1000000 >= $user['age']) {
         break;
     }
 }
