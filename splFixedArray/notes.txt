@@ -1,7 +1,0 @@
-====================================================================================================
-
-https://stackoverflow.com/questions/11827668/does-really-splfixedarray-perform-better-than-arrays
-
-https://www.php.net/manual/es/class.splfixedarray.php
-
-====================================================================================================

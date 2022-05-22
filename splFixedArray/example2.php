@@ -3,11 +3,19 @@
 include_once __DIR__ . '/../timeExecution.php';
 $timeStart = timeExecution::start();
 
-$x = 0;
-$data = new SplFixedArray(100000);
-for ($i = 0; $i < 100000; $i++) {
-    $data[$i] = ['id' => $x, 'value' => $i];
-    $x++;
+function generateData()
+{
+    $x = 0;
+    $data = new SplFixedArray(100000);
+    for ($i = 0; $i < 100000; $i++) {
+        $data[$i] = ['id' => $x, 'value' => $i];
+        $x++;
+    }
+
+    return $data;
 }
+
+// To do something with $data variable
+echo "Total items: " . count(generateData()) . PHP_EOL;
 
 timeExecution::end($timeStart);

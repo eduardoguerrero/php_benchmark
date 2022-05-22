@@ -1,10 +1,8 @@
 <?php
+
 include_once __DIR__ . '/../timeExecution.php';
 $timeStart = timeExecution::start();
 
-/**
- * @return array
- */
 function generateData()
 {
     $x = 0;
@@ -17,6 +15,7 @@ function generateData()
     return $data;
 }
 
+// To do something with $data variable
 echo "Total items: " . count(generateData()) . PHP_EOL;
 
 timeExecution::end($timeStart);

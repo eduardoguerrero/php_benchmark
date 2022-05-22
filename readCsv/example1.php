@@ -16,7 +16,7 @@ function getCsvRows()
     return $data;
 }
 
-// Get rows and do something with $data rows
+// To do something with $data variable
 $data = getCsvRows();
 $row = 0;
 foreach ($data as $item) {

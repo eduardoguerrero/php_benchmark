@@ -19,15 +19,20 @@ Then you can enter the php container
 ```bash
 ❯ docker exec -it -u dev php_benchmark_php bash
 ```
+
 # 2. Run examples
 
-### Example with array and get Fatal error: Allowed memory size of
+---
+
+## Read csv: Generator vs Array
+
+### - Example with array and get Fatal error: Allowed memory size of
 
 ```bash
 ❯ docker exec -it php_benchmark_php php -d memory_limit=500M /home/wwwroot/php_benchmark/readCsv/example1.php
 ```
 
-### Example with generator + yield
+### - Example with generator + yield
 
 ```bash
 ❯ docker exec -it php_benchmark_php php /home/wwwroot/php_benchmark/readCsv/example2.php
@@ -38,7 +43,37 @@ Then you can enter the php container
 | Time   | +/- 3:50 sec | 940 MB    |
 | Memory | +/- 5:30 sec | 0.41 MB   |
 
+References:
 
-Reference:
 - https://www.php.net/manual/es/class.generator.php
 - https://www.php.net/manual/es/language.generators.overview.php
+
+---
+
+## SplFixedArray vs Array
+
+### - Example with array
+
+```bash
+❯ docker exec -it php_benchmark_php php /home/wwwroot/php_benchmark/splFixedArray/example1.php
+```
+
+### - Example with SplFixedArray
+
+```bash
+❯ docker exec -it php_benchmark_php php /home/wwwroot/php_benchmark/splFixedArray/example2.php
+```
+
+
+|        | Array            | SplFixedArray |
+|--------|------------------|---------------|
+| Time   | +/-  0.02664 sec | 40 MB         |
+| Memory | +/-  0.02810 sec | 37 MB         |
+
+
+References:
+
+- https://www.php.net/manual/es/class.splfixedarray.php
+- https://stackoverflow.com/questions/11827668/does-really-splfixedarray-perform-better-than-arrays
+
+---
